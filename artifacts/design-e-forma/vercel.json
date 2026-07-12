@@ -1,0 +1,6 @@
+{
+  "installCommand": "cd ../.. && npm install -g pnpm && pnpm install --no-frozen-lockfile",
+  "buildCommand": "vite build --config vite.config.prod.ts",
+  "outputDirectory": "dist",
+  "framework": null
+}
