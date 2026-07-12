@@ -1,19 +1,19 @@
 import express, { type Express } from "express";
 import cors from "cors";
-import pinoHttpModule from "pino-http";
+import * as pinoHttpModule from "pino-http";
 import router from "./routes";
 import { logger } from "./lib/logger";
 
-// pino-http@10 ships as ESM with a default export; handle both CJS and ESM shapes
-const pinoHttp =
-  typeof (pinoHttpModule as any).default === "function"
-    ? (pinoHttpModule as any).default
-    : pinoHttpModule;
+// pino-http@10 default export incompatible with moduleResolution:bundler — cast to any
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const pinoHttp = (pinoHttpModule as any).default ?? pinoHttpModule;
 
 const app: Express = express();
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 app.use(
-  pinoHttp({
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  (pinoHttp as any)({
     logger,
     serializers: {
       req(req: { id: unknown; method: string; url?: string }) {
