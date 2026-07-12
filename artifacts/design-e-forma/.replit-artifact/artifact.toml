@@ -1,0 +1,27 @@
+kind = "web"
+previewPath = "/"
+title = "Design e Forma Cabeleireiro"
+version = "1.0.0"
+id = "artifacts/design-e-forma"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 18733
+
+[services.development]
+run = "pnpm --filter @workspace/design-e-forma run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/design-e-forma", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/design-e-forma/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "18733"
+BASE_PATH = "/"
