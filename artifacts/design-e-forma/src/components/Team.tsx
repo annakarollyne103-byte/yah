@@ -7,12 +7,14 @@ const team = [
   {
     photo: rosaImg,
     name: 'Rosa Santos',
-    role: 'Cabeleireira Especialista'
+    role: 'Cabeleireira Especialista',
+    bio: 'Sou apaixonada por cabelos e por lhes devolver a vitalidade e beleza naturais. Trabalho todos os dias de forma dedicada para aconselhar os melhores produtos e tratamentos a cada cliente. Cada pessoa que visita o nosso salão é única, com necessidades únicas e nada me dá mais gosto do que poder contribuir para que alguém se sinta melhor consigo mesma e aumentar a autoestima de quem confia no meu trabalho através do cuidado capilar.',
   },
   {
     photo: mirtesImg,
     name: 'Mirtes',
-    role: 'Estética Especialista'
+    role: 'Estética Especialista',
+    bio: 'O poder da estética é algo que me fascina pela forma como pode mudar o dia e a vida de alguém. Adoro cuidar das unhas e da pele de cada uma das nossas clientes e ver o impacto que estes pormenores tão importantes têm no aumento da autoestima e confiança de cada pessoa. Dedico-me diariamente ao cuidado das nossas clientes para que se sintam sempre lindas, poderosas, capazes de conquistar o mundo!',
   }
 ];
 
@@ -40,7 +42,7 @@ export default function Team() {
           </motion.h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 max-w-3xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 max-w-5xl mx-auto">
           {team.map((member, index) => (
             <motion.div
               key={index}
@@ -50,7 +52,7 @@ export default function Team() {
               transition={{ delay: index * 0.15, duration: 0.6 }}
               className="flex flex-col items-center text-center group"
             >
-              <div className="w-56 h-56 md:w-72 md:h-72 rounded-full mb-8 border-2 border-primary/30 group-hover:border-primary transition-colors duration-500 overflow-hidden relative shadow-xl">
+              <div className="w-56 h-56 md:w-64 md:h-64 rounded-full mb-8 border-2 border-primary/30 group-hover:border-primary transition-colors duration-500 overflow-hidden relative shadow-xl">
                 <img
                   src={member.photo}
                   alt={member.name}
@@ -58,8 +60,9 @@ export default function Team() {
                 />
                 <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mix-blend-overlay" />
               </div>
-              <h3 className="text-2xl font-serif font-bold text-white mb-2">{member.name}</h3>
-              <p className="text-primary font-medium tracking-wide uppercase text-sm">{member.role}</p>
+              <h3 className="text-2xl font-serif font-bold text-white mb-1">{member.name}</h3>
+              <p className="text-primary font-medium tracking-wide uppercase text-sm mb-6">{member.role}</p>
+              <p className="text-white/60 text-sm leading-relaxed max-w-sm">{member.bio}</p>
             </motion.div>
           ))}
         </div>

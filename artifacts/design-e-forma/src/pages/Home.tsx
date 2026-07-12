@@ -9,6 +9,8 @@ import Testimonials from '@/components/Testimonials';
 import Team from '@/components/Team';
 import Organic from '@/components/Organic';
 import FAQ from '@/components/FAQ';
+import Booking from '@/components/Booking';
+import PetFriendly from '@/components/PetFriendly';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import FloatingElements from '@/components/FloatingElements';
@@ -27,6 +29,8 @@ export default function Home() {
         <Team />
         <Organic />
         <FAQ />
+        <Booking />
+        <PetFriendly />
         <Contact />
       </main>
       <Footer />
