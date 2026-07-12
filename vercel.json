@@ -1,0 +1,5 @@
+{
+  "buildCommand": "cd artifacts/design-e-forma && npm install -g pnpm && pnpm install && pnpm run build",
+  "outputDirectory": "artifacts/design-e-forma/dist",
+  "installCommand": "echo 'skip'"
+}
