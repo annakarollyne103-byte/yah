@@ -1,6 +1,6 @@
 {
   "installCommand": "npm install -g pnpm && pnpm install --no-frozen-lockfile",
-  "buildCommand": "cd artifacts/design-e-forma && ./node_modules/.bin/vite build --config vite.config.prod.ts --outDir ../../dist",
-  "outputDirectory": "dist",
+  "buildCommand": "cd artifacts/design-e-forma && ./node_modules/.bin/vite build --config vite.config.prod.ts",
+  "outputDirectory": "artifacts/design-e-forma/dist",
   "framework": null
 }
