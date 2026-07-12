@@ -1,19 +1,19 @@
 import express, { type Express } from "express";
 import cors from "cors";
-import * as pinoHttpModule from "pino-http";
+import { createRequire } from "node:module";
 import router from "./routes";
 import { logger } from "./lib/logger";
 
-// pino-http@10 default export incompatible with moduleResolution:bundler — cast to any
+// pino-http@10 default export has no call signatures under moduleResolution:bundler.
+// Use createRequire so TypeScript never sees the module type at all.
+const _require = createRequire(import.meta.url);
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const pinoHttp = (pinoHttpModule as any).default ?? pinoHttpModule;
+const pinoHttp = _require("pino-http") as (opts: any) => any;
 
 const app: Express = express();
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 app.use(
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  (pinoHttp as any)({
+  pinoHttp({
     logger,
     serializers: {
       req(req: { id: unknown; method: string; url?: string }) {
