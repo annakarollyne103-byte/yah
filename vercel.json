@@ -1,5 +1,6 @@
 {
-  "buildCommand": "cd artifacts/design-e-forma && npm install -g pnpm && pnpm install && pnpm run build",
+  "installCommand": "npm install -g pnpm && pnpm install --no-frozen-lockfile",
+  "buildCommand": "pnpm --filter @workspace/design-e-forma exec vite build --config vite.config.prod.ts",
   "outputDirectory": "artifacts/design-e-forma/dist",
-  "installCommand": "echo 'skip'"
+  "framework": null
 }
